@@ -5,7 +5,7 @@ import { VpnKey } from '@material-ui/icons';
 import { pink } from '@material-ui/core/colors';
 
 type LoginFormData = {
-    login: string;
+    email: string;
     password: string;
 }
 
@@ -28,15 +28,17 @@ const useStyles = makeStyles((theme) => ({
 const validate = (values: LoginFormData): Partial<LoginFormData> => {
     const errors: Partial<LoginFormData> = {};
 
-    if (!values.login) {
-        errors.login = "Login is required";
+    if (!values.email) {
+        errors.email = "Email is required";
+    } else if (!/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(values.email)) {
+        errors.email = "Email have incorrect format";
     }
 
     if (values.password.length < 8) {
         errors.password = "Password required at least 8 characters";
-    } else if (!RegExp('(?=.*[A-Z])').test(values.password)) {
+    } else if (!/(?=.*[A-Z])/.test(values.password)) {
         errors.password = "Password required at least one capital letter";
-    } else if (!RegExp('(?=.*[0-9])').test(values.password)) {
+    } else if (!/(?=.*[0-9])/.test(values.password)) {
         errors.password = "Password required at least one number";
     }
 
@@ -50,7 +52,7 @@ const LoginForm = (): JSX.Element => {
 
     const formik = useFormik({
         initialValues: {
-            login: '',
+            email: '',
             password: ''
         },
         onSubmit: values => {
@@ -82,12 +84,12 @@ const LoginForm = (): JSX.Element => {
             component="form" 
             onSubmit={formik.handleSubmit}>
                 <TextField 
-                    label="Login" 
-                    name="login" 
-                    value={formik.values.login} 
+                    label="Email" 
+                    name="email" 
+                    value={formik.values.email} 
                     className={classes.input} 
-                    error={!!formik.errors.login && submitted}
-                    helperText={submitted && formik.errors.login}
+                    error={!!formik.errors.email && submitted}
+                    helperText={submitted && formik.errors.email}
                     onChange={formik.handleChange}/>
                 <TextField 
                     label="Password" 
