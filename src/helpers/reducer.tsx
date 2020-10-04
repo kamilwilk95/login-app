@@ -2,7 +2,7 @@ import { LoginFormData } from './types';
 
 export type GlobalState = {
     loading: boolean;
-    error?: string;
+    error?: string | null;
     user?: UserData | null;
     isLogged: boolean;
 };
@@ -28,9 +28,14 @@ export const REMOVE_USER_DATA = 'REMOVE_USER_DATA';
 export const LOG_IN_USER = 'LOG_IN_USER';
 export const LOGGED_SUCCESSFULLY = 'LOGGED_SUCCESSFULLY';
 export const FETCH_USER_DATA = 'FETCH_USER_DATA';
+export const CLEAR_ERROR = 'CLEAR_ERROR';
 
 interface FetchStart {
     type: typeof FETCH_START
+}
+
+interface ClearError {
+    type: typeof CLEAR_ERROR
 }
 
 interface FetchSuccessfully {
@@ -68,10 +73,14 @@ export interface LoggedSuccessfully {
     type: typeof LOGGED_SUCCESSFULLY
 }
 
-type ActionType = FetchStart | FetchSuccessfully | FetchError | SaveUserData | LoggedSuccessfully | RemoveUserData;
+type ActionType = FetchStart | FetchSuccessfully | FetchError | SaveUserData | LoggedSuccessfully | RemoveUserData | ClearError;
 
 export const fetchStart = (): FetchStart => ({
     type: FETCH_START,
+});
+
+export const clearError = (): ClearError => ({
+    type: CLEAR_ERROR,
 });
 
 export const fetchError = (error: string): FetchError => ({
@@ -150,7 +159,14 @@ const globalReducer = (state: GlobalState = initialState, action: ActionType): G
         case LOGGED_SUCCESSFULLY: {
             return {
                 ...state,
-                isLogged: true,
+                isLogged: true
+            };
+        }
+
+        case CLEAR_ERROR: {
+            return {
+                ...state,
+                error: null
             };
         }
 

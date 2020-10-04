@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Avatar, Button, Grid, makeStyles, TextField } from '@material-ui/core';
+import { Avatar, Button, Grid, makeStyles, TextField, Theme } from '@material-ui/core';
 import { useFormik } from 'formik';
 import { VpnKey } from '@material-ui/icons';
 import { pink } from '@material-ui/core/colors';
@@ -7,7 +7,7 @@ import { LoginFormData } from '../../helpers/types';
 import { useDispatch } from 'react-redux';
 import { logInUser } from '../../helpers/reducer';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
     icon: {
         backgroundColor: pink[500],
         margin: "0 auto"
