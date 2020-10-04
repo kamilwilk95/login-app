@@ -3,11 +3,9 @@ import { Avatar, Button, Grid, makeStyles, TextField } from '@material-ui/core';
 import { useFormik } from 'formik';
 import { VpnKey } from '@material-ui/icons';
 import { pink } from '@material-ui/core/colors';
-
-type LoginFormData = {
-    email: string;
-    password: string;
-}
+import { LoginFormData } from '../../helpers/types';
+import { useDispatch } from 'react-redux';
+import { logInUser } from '../../helpers/reducer';
 
 const useStyles = makeStyles((theme) => ({
     icon: {
@@ -47,6 +45,7 @@ const validate = (values: LoginFormData): Partial<LoginFormData> => {
 
 const LoginForm = (): JSX.Element => {
     const classes = useStyles();
+    const dispatch = useDispatch();
 
     const [submitted, setSubmitted] = useState(false);
 
@@ -56,8 +55,7 @@ const LoginForm = (): JSX.Element => {
             password: ''
         },
         onSubmit: values => {
-            setSubmitted(true);
-            console.log(values);
+            dispatch(logInUser(values));
         },
         validate
     });
