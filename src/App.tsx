@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Redirect, Route } from 'react-router-dom';
+import { HashRouter, Redirect, Route } from 'react-router-dom';
 import { Provider, useDispatch, useSelector } from 'react-redux'
 import MainLayout from './components/MainLayout/MainLayout';
 import LoginForm from './components/LoginForm/LoginForm';
@@ -39,7 +39,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <MainLayout>
         <Route exact path="/login">
           {isLogged ? <Redirect to='/profile' /> : <LoginForm />}
@@ -62,7 +62,7 @@ const App = () => {
         </p>
       </Modal>
       {loading && <CircularProgress className={classes.loader} />}
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
