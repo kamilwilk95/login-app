@@ -2,8 +2,8 @@ import axios from 'axios';
 import { LoginUserDto, UserDataDto } from './dto';
 import { LoginFormData } from './types';
 
-const LOGIN_URL = 'http://localhost:8080/api/login';
-const USER_DATA_URL = 'http://localhost:8080/api/profile';
+const LOGIN_URL = '/api/login';
+const USER_DATA_URL = '/api/profile';
 
 axios.interceptors.request.use((config) => {
     config.headers = {

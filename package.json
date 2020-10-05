@@ -14,8 +14,8 @@
     "@types/react-dom": "^16.9.0",
     "axios": "^0.20.0",
     "concurrently": "^5.3.0",
+    "express": "^4.17.1",
     "formik": "^2.1.7",
-    "json-server": "^0.16.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
@@ -26,9 +26,7 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "start": "concurrently \"yarn start:server\" \"yarn start:react\"",
-    "start:react": "react-scripts start",
-    "start:server": "node server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -36,6 +34,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "proxy": "http://localhost:8080",
   "browserslist": {
     "production": [
       ">0.2%",
