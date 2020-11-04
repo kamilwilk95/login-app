@@ -1,0 +1,7 @@
+{
+    "extends": [
+      "@codibly/tslint-standard",
+      "tslint:recommended",
+      "tslint-react"
+    ]
+  }

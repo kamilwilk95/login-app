@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     transform: 'translate(-50%, -50%)',
     padding: theme.spacing(5, 2),
     color: red[500],
-    background: "#ffffff",
+    background: '#ffffff',
   },
   loader: {
     position: 'fixed',
@@ -41,14 +41,14 @@ const App = () => {
   return (
     <HashRouter>
       <MainLayout>
-        <Route exact path="/login">
-          {isLogged ? <Redirect to='/profile' /> : <LoginForm />}
+        <Route exact={true} path="/login">
+          {isLogged ? <Redirect to="/profile" /> : <LoginForm />}
         </Route>
-        <Route exact path="/profile">
-          {isLogged ? <Profile /> : <Redirect to='/login' />}
+        <Route exact={true} path="/profile">
+          {isLogged ? <Profile /> : <Redirect to="/login" />}
         </Route>
-        <Route exact path="/">
-          {isLogged ? <Redirect to='/profile' /> : <Redirect to='/login' />}
+        <Route exact={true} path="/">
+          {isLogged ? <Redirect to="/profile" /> : <Redirect to="/login" />}
         </Route>
       </MainLayout>
       <Modal

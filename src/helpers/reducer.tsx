@@ -18,7 +18,7 @@ const initialState: GlobalState = {
     isLogged: !!localStorage.getItem('token')
 };
 
-//actions
+// actions
 export const FETCH_START = 'FETCH_START';
 export const FETCH_SUCCESSFULLY = 'FETCH_SUCCESSFULLY';
 export const FETCH_ERROR = 'FETCH_ERROR';
