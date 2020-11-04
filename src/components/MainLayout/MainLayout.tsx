@@ -24,7 +24,7 @@ const MainLayout = ({children}: MainLayoutProps) => {
             <AppBar position="static">
                 <Toolbar className={classes.toolbar}>
                     {logged ? <Button onClick={() => dispatch(logOutUser())} color="inherit">Logout</Button>
-                    : <Button component={Link} to='/login' color="inherit">Login</Button>}
+                    : <Button component={Link} to="/login" color="inherit">Login</Button>}
                 </Toolbar>
             </AppBar>
             {children}
