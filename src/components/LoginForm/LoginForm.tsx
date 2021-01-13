@@ -92,7 +92,9 @@ const LoginForm = (): JSX.Element => {
                     className={classes.input}
                     error={!!formik.errors.email && submitted}
                     helperText={submitted && formik.errors.email}
-                    onChange={formik.handleChange} />
+                    onChange={formik.handleChange}
+                    inputProps={{"data-testid": "email-input"}}
+                />
                 <TextField
                     label="Password"
                     name="password"
@@ -102,6 +104,7 @@ const LoginForm = (): JSX.Element => {
                     helperText={submitted && formik.errors.password}
                     onChange={formik.handleChange}
                     type="password"
+                    inputProps={{'data-testid': 'password-input'}}
                 />
                 <Button variant="contained" onClick={() => setSubmitted(true)} color="primary" type="submit" disabled={!formik.isValid && submitted}>
                     Login

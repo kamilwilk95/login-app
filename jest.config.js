@@ -4,17 +4,17 @@ module.exports = {
         "^.+\\.tsx?$": "ts-jest"
     },
     testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    coveragePathIgnorePatterns: [
+        ".mock.ts"
+    ],
     moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
-    testEnvironment: "node",
+    testEnvironment: "jest-environment-jsdom-sixteen",
     globals: {
         "ts-jest": {
+            tsconfig: 'tsconfig.json',
             diagnostics: {
                 warnOnly: true
             }
         }
-    },
-
-    // Setup Enzyme
-    snapshotSerializers: ["enzyme-to-json/serializer"],
-    setupFilesAfterEnv: ["<rootDir>/src/tests/setupEnzyme.ts", "jest-localstorage-mock"]
+    }
 };

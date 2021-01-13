@@ -29,7 +29,7 @@ const Profile = () => {
     }, [dispatch]);
 
     return (
-        <div className={classes.root}>
+        <div className={classes.root} data-testid="profile">
             <Avatar alt={`${userData?.firstName} ${userData?.lastName}`} src={userData?.avatarUrl} className={classes.large} />
             <h3>{`${userData?.firstName} ${userData?.lastName}`}</h3>
         </div>

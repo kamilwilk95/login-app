@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     position: 'fixed',
     left: '50%',
     top: '50%',
-    transform: 'translate(-50%, -50%)',
+    transform: 'translate(-51%, -50%)',
     padding: theme.spacing(5, 2),
     color: red[500],
     background: '#ffffff',
@@ -56,6 +56,7 @@ const App = () => {
         onClose={() => dispatch(clearError())}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
+        data-testid="error-modal"
       >
         <p className={classes.modal}>
           {error}
