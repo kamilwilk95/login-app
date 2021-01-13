@@ -5,8 +5,8 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.1",
     "@testing-library/user-event": "^7.1.2",
     "@types/jest": "^26.0.14",
     "@types/node": "^12.0.0",
@@ -29,6 +29,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest --watch",
+    "test:coverage": "jest --coverage",
     "eject": "react-scripts eject",
     "lint": "tslint --project tsconfig.json"
   },
@@ -54,12 +55,14 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "enzyme-to-json": "^3.6.1",
+    "expect-redux": "^5.0.3",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
     "jest-localstorage-mock": "^2.4.3",
     "jsdom": "^16.4.0",
     "jsdom-global": "^3.0.2",
     "msw": "^0.21.3",
     "redux-mock-store": "^1.5.4",
-    "ts-jest": "^26.4.1",
+    "ts-jest": "24.3.0",
     "tslint": "^6.1.3"
   }
 }

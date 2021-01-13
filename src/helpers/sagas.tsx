@@ -7,7 +7,6 @@ function* fetchLogin(action: LogInUser) {
     try {
         yield put(fetchStart());
         const response: LoginUserDto = yield call(UserApi.logInUser, action.payload);
-
         localStorage.setItem('token', response.token);
         yield put(loggedSuccessfully());
         yield put(fetchSuccessfully());

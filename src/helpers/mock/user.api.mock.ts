@@ -27,7 +27,19 @@ export class UserMockApi {
                     ctx.json(UserMockApi.logInUser.getErrorResponse())
                 );
             }
-        })
+        }),
+        handleSuccess: () => rest.post(LOGIN_URL, (req, res, ctx) => {
+            return res(
+                ctx.json(UserMockApi.logInUser.getSuccessResponse())
+            );
+        }),
+        handleError: () => rest.post(LOGIN_URL, (req, res, ctx) => {
+            console.log('ERRORR!!')
+            return res(
+                ctx.status(403),
+                ctx.json(UserMockApi.logInUser.getErrorResponse())
+            );
+        }),
     }
 
     static getUserData = {
